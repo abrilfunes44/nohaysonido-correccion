@@ -27,7 +27,23 @@ class Figura {
         image(this.figuras[this.cual], 0, 0, this.an, this.al);
         pop();
     }
-   
+
+    dibujar(haySonido) {
+    push();
+    noStroke();
+
+    translate(this.x, this.y); 
+    rotate(this.angulo || 0);
+    tint(this.elColor);
+    image(this.figuras[this.cual], 0, 0, this.an, this.al);
+    pop();
+
+    if (haySonido) {
+        this.crecer();
+    }
+}
+    
+   /*
     dibujar(haySonido) {
     push();
     noStroke();
@@ -36,6 +52,13 @@ class Figura {
     let dibujarX = this.baseX;
     let dibujarY = this.baseY;
 
+    if (!haySonido) {
+    for (let i = 0; i < cantidad; i++) {
+        let f = lasFiguras[i];
+        f.x += random(-0.3, 0.3);
+        f.y += random(-0.3, 0.3);
+    }
+}
     if (!haySonido) {
         dibujarX += random(-1, 1);
         dibujarY += random(-1, 1);
@@ -52,7 +75,7 @@ class Figura {
         this.crecer();
     }
 }
-
+*/
     rotar(pitch) {
         this.umbralNota = 50; // Por ejemplo, 50 es la nota MIDI correspondiente a A3 (La)
         this.velocidad = 0.02; // velocidad de rotación

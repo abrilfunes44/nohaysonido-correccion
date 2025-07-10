@@ -91,8 +91,23 @@ function draw() {
         reiniciarObra();
     }
 
+    if (!haySonido) {
+  for (let i = 0; i < cantidad; i++) {
+    let figura = lasFiguras[i];
+    figura.x += map(noise(frameCount * 0.01 + i), 0, 1, -1, 1);
+    figura.y += map(noise(frameCount * 0.01 + 100 + i), 0, 1, -1, 1);
+  }
+}
 
 
+/*
+    if (!haySonido) {
+    for (let i = 0; i < cantidad; i++) {
+        lasFiguras[i].x += random(-1, 1);
+        lasFiguras[i].y += random(-1, 1);
+    }
+}
+*/
     if (haySonido) {
         if (cantidad < cantFiguras) {
             figura = new Figura(random(width), random(height), random(10, 100), random(10, 100), figuras, int(random(cant)), paleta);
